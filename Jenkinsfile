@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy to prod') {
             input {
                 message "Should we continue?"
-                ok "Yes please"  
+                ok "Please do"  
             }
             
             steps {
