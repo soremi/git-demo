@@ -5,12 +5,17 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building your code'
+                // composer install # php
+                // pip install -r requirements.txt # python
+                // npm install # nodejs
+                sh 'chmod +x test.sh'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Testing your code'
+                sh './test.sh'
             }
         }
 
