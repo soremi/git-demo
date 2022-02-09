@@ -36,4 +36,15 @@ pipeline {
             }
         }
     }
+
+    post {
+     // send email notification the specicied addresses if the build fails
+      failure {  
+             mail bcc: '', body: "<b>Failed Jenkins Build</b><br>Project: ${env.JOB_NAME} 
+             <br>Build Number: ${env.BUILD_NUMBER} <br> URL of the build: ${env.BUILD_URL}", cc: '', 
+             charset: 'UTF-8', from: 'jenkins@jenkins-build.com', mimeType: 'text/html', replyTo: 'put@youremail.com', 
+             subject: "ERROR CI: Project name -> ${env.JOB_NAME}", 
+             to: "daresoremi@gmail.com";  
+         }
+    }
 }
